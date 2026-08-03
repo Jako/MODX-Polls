@@ -1,6 +1,6 @@
 Polls.grid.Questions = function(config) {
     config = config || {};
-	
+
     Ext.applyIf(config, {
         id: 'polls-grid-questions',
 		url: Polls.config.connectorUrl,
@@ -42,8 +42,8 @@ Polls.grid.Questions = function(config) {
 				sortable: true,
 				width: 75,
 				editor: {
-					xtype: 'xdatetime', 
-					dateFormat: 'd-m-Y', 
+					xtype: 'xdatetime',
+					dateFormat: 'd-m-Y',
 					timeFormat: 'H:i'
 				}
 			},{
@@ -52,8 +52,8 @@ Polls.grid.Questions = function(config) {
 				sortable: true,
 				width: 75,
 				editor: {
-					xtype: 'xdatetime', 
-					dateFormat: 'd-m-Y', 
+					xtype: 'xdatetime',
+					dateFormat: 'd-m-Y',
 					timeFormat: 'H:i'
 				}
 			},{
@@ -102,7 +102,7 @@ Polls.grid.Questions = function(config) {
 			}
 		]
     });
-	
+
     Polls.grid.Questions.superclass.constructor.call(this, config);
 };
 
@@ -114,7 +114,7 @@ Ext.extend(Polls.grid.Questions, MODx.grid.Grid,{
         this.refresh();
     },
 	filterByCategory: function(cb,rec,ri) {
-        this.getStore().baseParams['category'] = rec.data['name'];
+        this.getStore().baseParams['category'] = rec.data.name;
         this.getBottomToolbar().changePage(1);
         this.refresh();
     },
@@ -133,7 +133,7 @@ Ext.extend(Polls.grid.Questions, MODx.grid.Grid,{
     },
 	setupAnswers: function(btn, e) {
         if (!this.menu.record || !this.menu.record.id) return false;
-        
+
         location.href = '?a=' + MODx.request.a + '&action=questions/answers&question=' + this.menu.record.id;
     },
 	duplicateQuestion: function(btn, e) {
@@ -203,7 +203,7 @@ Polls.window.CreateQuestion = function(config) {
 			}]
 		}]
     });
-	
+
     Polls.window.CreateQuestion.superclass.constructor.call(this, config);
 };
 
@@ -230,7 +230,7 @@ Polls.window.UpdateQuestion = function(config) {
 				layout: 'column',
 				border: false,
 				items: [{
-					columnWidth: .5,
+					columnWidth: 0.5,
 					border: false,
 					layout: 'form',
 					defaults: { anchor: '100%' },
@@ -249,7 +249,7 @@ Polls.window.UpdateQuestion = function(config) {
 						allowBlank: true
 					}]
 				},{
-					columnWidth: .5,
+					columnWidth: 0.5,
 					border: false,
 					layout: 'form',
 					defaults: { anchor: '100%' },
@@ -257,14 +257,14 @@ Polls.window.UpdateQuestion = function(config) {
 						xtype: 'xdatetime',
 						fieldLabel: _('polls.publishdate'),
 						name: 'publishdate',
-						dateFormat: 'd-m-Y', 
+						dateFormat: 'd-m-Y',
 						timeFormat: 'H:i',
 						allowBlank: true
 					},{
 						xtype: 'xdatetime',
 						fieldLabel: _('polls.unpublishdate'),
 						name: 'unpublishdate',
-						dateFormat: 'd-m-Y', 
+						dateFormat: 'd-m-Y',
 						timeFormat: 'H:i',
 						allowBlank: true
 					},{
@@ -276,12 +276,12 @@ Polls.window.UpdateQuestion = function(config) {
 				}]
 			}]
 		}]
-		
+
 		/*
 		fields: [,
 		]*/
     });
-	
+
     Polls.window.UpdateQuestion.superclass.constructor.call(this, config);
 };
 
